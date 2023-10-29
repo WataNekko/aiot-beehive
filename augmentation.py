@@ -21,10 +21,8 @@ def augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturati
 # original dataset folder path
 folder_path = os.getenv('dataset_path')
 
-
 # label file path
 labels_file = os.getenv("labels_file")
-
 # Load image labels from the JSON file
 with open(labels_file, 'r') as f:
     image_labels = json.load(f)
