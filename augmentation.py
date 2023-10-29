@@ -3,7 +3,8 @@ import os
 import json
 import random
 
-def augment(image, seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast,seed_hue,jpeg_quality):
+# augment function
+def augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturation, seed_contrast, seed_hue, jpeg_quality):
     image = tf.image.stateless_random_flip_left_right(image, seed=seed_left_right)
     image = tf.image.stateless_random_flip_up_down(image, seed=seed_up_down)
     image = tf.image.stateless_random_brightness(image, max_delta=0.2, seed=seed_brightness)
@@ -14,21 +15,21 @@ def augment(image, seed_left_right,seed_up_down,seed_brightness,seed_saturation,
     image = tf.image.decode_jpeg(image, channels=3)
     return image
 
-# Path of original images
-folder_path = 'D:\my dataset\images_150'
+# original dataset folder path
+folder_path = ''
 
-# Path of Label
-labels_file = './test\data.json'
+# label file path
+labels_file = ''
 
 # Load image labels from the JSON file
 with open(labels_file, 'r') as f:
     image_labels = json.load(f)
 
-# Create a folder to store augmented images
-augmented_folder_path = r'D:\my dataset\testaug'
+# export path
+augmented_folder_path = ''
 os.makedirs(augmented_folder_path, exist_ok=True)
 
-# Loop through the image files, apply data augmentation
+# Loop through the image files, apply data augmentation with unique seeds for each attribute, and save the augmented images with updated labels in the JSON file
 for image_file in os.listdir(folder_path):
     if image_file.endswith(('.jpg', '.jpeg', '.png', '.bmp')):
         # Load the image
@@ -42,7 +43,7 @@ for image_file in os.listdir(folder_path):
         # Get the labels for the image from the JSON file
         image_label = image_labels.get(image_filename, {})
 
-        # Generate unique seeds
+        # Generate unique seeds for each attribute for every image
         seed_left_right = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
         seed_up_down = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
         seed_brightness = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
@@ -51,12 +52,11 @@ for image_file in os.listdir(folder_path):
         seed_hue = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
         jpeg_quality = random.randint(80, 95)  # Generate a random JPEG quality value
 
-
         # Apply data augmentation to the image with unique seeds for each attribute
-        augmented_image = augment(image,seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast,seed_hue,jpeg_quality)
+        augmented_image = augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturation, seed_contrast, seed_hue, jpeg_quality)
 
         # Define the filename for the augmented image
-        augmented_image_filename = f'augmented_images_test_{image_filename}'
+        augmented_image_filename = f'augmented_images_150_{image_filename}'
 
         # Save the augmented image as a JPEG file in the augmented folder
         augmented_image_path = os.path.join(augmented_folder_path, augmented_image_filename)
