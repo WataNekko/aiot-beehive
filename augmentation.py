@@ -3,12 +3,13 @@ import os
 import json
 import random
 
-def augment(image, seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast):
+def augment(image, seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast,seed_hue):
     image = tf.image.stateless_random_flip_left_right(image, seed=seed_left_right)
     image = tf.image.stateless_random_flip_up_down(image, seed=seed_up_down)
     image = tf.image.stateless_random_brightness(image, max_delta=0.2, seed=seed_brightness)
     image = tf.image.stateless_random_saturation(image, lower=0.5, upper=1.5, seed=seed_saturation)
     image = tf.image.stateless_random_contrast(image, lower=0.7, upper=1.3, seed=seed_contrast)
+    image = tf.image.stateless_random_hue(image, max_delta=0.3, seed=seed_hue)
     return image
 
 # Path of original images
@@ -45,10 +46,11 @@ for image_file in os.listdir(folder_path):
         seed_brightness = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
         seed_saturation = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
         seed_contrast = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
+        seed_hue = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
 
 
         # Apply data augmentation to the image with unique seeds for each attribute
-        augmented_image = augment(image,seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast)
+        augmented_image = augment(image,seed_left_right,seed_up_down,seed_brightness,seed_saturation,seed_contrast,seed_hue)
 
         # Define the filename for the augmented image
         augmented_image_filename = f'augmented_images_test_{image_filename}'
