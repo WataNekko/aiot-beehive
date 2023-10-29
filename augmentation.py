@@ -2,7 +2,10 @@ import tensorflow as tf
 import os
 import json
 import random
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # augment function
 def augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturation, seed_contrast, seed_hue, jpeg_quality):
     image = tf.image.stateless_random_flip_left_right(image, seed=seed_left_right)
@@ -16,17 +19,18 @@ def augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturati
     return image
 
 # original dataset folder path
-folder_path = ''
+folder_path = os.getenv('folder_path')
+
 
 # label file path
-labels_file = ''
+labels_file = os.getenv("labels_file")
 
 # Load image labels from the JSON file
 with open(labels_file, 'r') as f:
     image_labels = json.load(f)
 
 # export path
-augmented_folder_path = ''
+augmented_folder_path = os.getenv("export_path")
 os.makedirs(augmented_folder_path, exist_ok=True)
 
 # Loop through the image files, apply data augmentation with unique seeds for each attribute, and save the augmented images with updated labels in the JSON file
