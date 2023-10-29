@@ -3,6 +3,10 @@ import os
 import json
 import random
 
+def augment(image, seed_left_right,seed_up_down):
+    image = tf.image.stateless_random_flip_left_right(image, seed=seed_left_right)
+    image = tf.image.stateless_random_flip_up_down(image, seed=seed_up_down)
+    return image
 
 # Path of original images
 folder_path = './test/test data'
@@ -33,10 +37,11 @@ for image_file in os.listdir(folder_path):
         image_label = image_labels.get(image_filename, {})
 
         # Generate unique seeds
-        seed = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
+        seed_left_right = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
+        seed_up_down = tf.random.uniform(shape=(2,), maxval=10000, dtype=tf.int32)
 
         # Apply data augmentation to the image with unique seeds for each attribute
-        augmented_image = tf.image.stateless_random_flip_left_right(image, seed=seed)
+        augmented_image = augment(image,seed_left_right,seed_up_down)
 
         # Define the filename for the augmented image
         augmented_image_filename = f'augmented_images_test_{image_filename}'
