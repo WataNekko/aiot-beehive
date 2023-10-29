@@ -19,7 +19,7 @@ def augment(image, seed_left_right, seed_up_down, seed_brightness, seed_saturati
     return image
 
 # original dataset folder path
-folder_path = os.getenv('folder_path')
+folder_path = os.getenv('dataset_path')
 
 
 # label file path
