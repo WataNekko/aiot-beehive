@@ -1,6 +1,7 @@
 # test
 test/
 test.py
+seeded-multiclass.ipynb
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
