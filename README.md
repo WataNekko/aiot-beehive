@@ -1,7 +1,6 @@
 # aiot-beehive
 AIoT Beehive Monitoring System
 
-
 # Augmentation.py tutorial:
     step 1: follow the note in .env.tutorial
         + `dataset_path` is the original images's folder path
