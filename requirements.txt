@@ -1,3 +1,5 @@
 tensorflow
-dotenv
+python-dotenv
 h5py
+opencv-python
+matplotlib
