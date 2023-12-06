@@ -39,8 +39,8 @@ no_trace=False
 
 org_img = cv2.imread(source)
 # Directories
-# save_dir = "/tmp/yolov7/runs/detect/exp" # increment run
-# os.makedirs(save_dir, exist_ok=True)  # make dir
+save_dir = "/tmp/yolov7/runs/detect/exp" # increment run
+os.makedirs(save_dir, exist_ok=True)  # make dir
 
 # Initialize
 # set_logging()
@@ -120,7 +120,7 @@ for path, img, im0s, vid_cap in dataset:
             det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
 
             boundingbox = det.int().detach().cpu().numpy()
-            print(boundingbox)
+            print(boundingbox[0][:4])
             _1st_bb = boundingbox[0][:4]
             # org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]]
             # cv2.imwrite("test.png",org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]])
