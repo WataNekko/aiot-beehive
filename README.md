@@ -28,6 +28,7 @@ AIoT Beehive Monitoring System
         + `export_path` is the exportation location for new image
     step 2 run pip3 install -r requirements.txt
     step 3: run the augmentation.py file by your python compiler and wait
+    
 # tutorial to get Number of Bee in image:
     Call function detect(save_img, weights, source, save_dir) in ./yolo/yolov7/Object_Detection.py
         + save_img (boolean): decide to output image with boundingbox or not

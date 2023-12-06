@@ -15,11 +15,8 @@ from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
 
-def detect(save_img=False, weights = "D:/best.pt", source = "D:/058ae8ff-f000000030_png.rf.34a7967630618a23ca4ab991e4ceaa5c.jpg",save_dir = "D:/tmp/yolov7/runs/detect/exp"):
-    save_img = True # save inference images
+def detect(save_img=True, weights = "D:/best.pt", source = "D:\dataset\test\images\d1ea6407-f000000017_png.rf.f292506a34acc49cfda2ebe1b05e097d.jpg",save_dir = "D:/tmp/yolov7/runs/detect/exp"):
 
-    weights = ['D:/best.pt']
-    source = "D:/058ae8ff-f000000030_png.rf.34a7967630618a23ca4ab991e4ceaa5c.jpg"
     imgsz=480
     conf_thres=0.2
     iou_thres=0.3
@@ -165,3 +162,4 @@ def detect(save_img=False, weights = "D:/best.pt", source = "D:/058ae8ff-f000000
 
 
 
+detect()
