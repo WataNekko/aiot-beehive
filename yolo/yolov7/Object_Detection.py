@@ -44,7 +44,7 @@ os.makedirs(save_dir, exist_ok=True)  # make dir
 
 # Initialize
 # set_logging()
-device = select_device("cuda")
+device = select_device("cuda" if torch.cuda.is_available() else "cpu")
 half = device.type != 'cpu'  # half precision only supported on CUDA
 
 # Load model
