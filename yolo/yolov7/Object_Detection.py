@@ -15,10 +15,10 @@ from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
 
-def detect(save_img=True, weights = "D:/best.pt", source = "D:\dataset\test\images\d1ea6407-f000000017_png.rf.f292506a34acc49cfda2ebe1b05e097d.jpg",save_dir = "D:/tmp/yolov7/runs/detect/exp"):
+def detect(save_img=True, weights = "D:/best.pt", source = "D:/dataset/test/images/d1ea6407-f000000017_png.rf.f292506a34acc49cfda2ebe1b05e097d.jpg",save_dir = "D:/tmp/yolov7/runs/detect/exp"):
 
     imgsz=480
-    conf_thres=0.2
+    conf_thres=0.3
     iou_thres=0.3
     device=''
     view_img=False
