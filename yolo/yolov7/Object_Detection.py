@@ -122,8 +122,8 @@ for path, img, im0s, vid_cap in dataset:
             boundingbox = det.int().detach().cpu().numpy()
             print(boundingbox)
             _1st_bb = boundingbox[0][:4]
-            org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]]
-            cv2.imwrite("test.png",org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]])
+            # org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]]
+            # cv2.imwrite("test.png",org_img[_1st_bb[1]:_1st_bb[3], _1st_bb[0]:_1st_bb[2]])
             # Print results
             for c in det[:, -1].unique():
                 n = (det[:, -1] == c).sum()  # detections per class
