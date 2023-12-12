@@ -82,10 +82,10 @@ def detect(source):
 
 
 
-a,b=detect("D:/dataset/test/images/d1ea6407-f000000017_png.rf.f292506a34acc49cfda2ebe1b05e097d.jpg")
+# a,b=detect("D:/dataset/test/images/d1ea6407-f000000017_png.rf.f292506a34acc49cfda2ebe1b05e097d.jpg")
 
-print(a)
-import cv2
-cv2.imshow('1',b)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# print(a)
+# import cv2
+# cv2.imshow('1',b)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
