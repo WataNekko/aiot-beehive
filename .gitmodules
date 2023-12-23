@@ -1,0 +1,3 @@
+[submodule "site"]
+	path = site
+	url = https://github.com/18874studentvgu/M-24_AIBeeSite.git
