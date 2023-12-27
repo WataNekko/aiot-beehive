@@ -12,7 +12,7 @@ The first core component of our system is image classification, empowering us to
 
 ### Multi-class classification
 
-Our multi-class classification model and training code can be found on the trainining_method_2 branch: [training_method_2:classification.ipynb](https://github.com/WataNekko/aiot-beehive/blob/training_method_2/classification.ipynb)
+Our multi-class classification model and training code can be found on the `training_method_2` branch: [training_method_2:classification.ipynb](https://github.com/WataNekko/aiot-beehive/blob/training_method_2/classification.ipynb)
 
 This model was originally our backup plan and only served for our learning purposes.
 
@@ -30,7 +30,25 @@ The model building and training code for this can be found in the [`classificati
 
 This is a classification model based on the BeeAlarmed project's approach to classify bees. This integrated nicely with the rest of our system, so this will be our main classification model.
 
-The model building and training code for this can be found in the [`BeeAlarmed-classification` folder](BeeAlarmed-classification/)
+The model building and training code for this can be found in the [`BeeAlarmed-classification` folder](BeeAlarmed-classification/).
+
+## Bee detection
+
+The bee detection component of our system is crucial for isolating individual bees within hive images, laying the foundation for subsequent classification. Following are the methods employed to identify and extract bees from images, paving the way for detailed analysis of their activities and health.
+
+### OpenCV detection
+
+This approach uses OpenCV to detect bee in an input image. This is inspired by the BeeAlarmed project's approach to object detection.
+
+The code can be found in the [`BeeAlarmed-detection` folder](BeeAlarmed-detection/).
+
+### YOLOv7 detection
+
+This approach uses the more advanced and accurate YOLOv7 deep learning model for object detection. The code to this approach can be found on the `training_method_2` branch.
+
+YOLOv7 model training code: [training_method_2:Object_Detection_training.ipynb](https://github.com/WataNekko/aiot-beehive/blob/training_method_2/Object_Detection_training.ipynb)
+
+YOLOv7 object detection code (model usage): [training_method_2:yolo/yolov7/Object_Detection.py](https://github.com/WataNekko/aiot-beehive/blob/training_method_2/yolo/yolov7/Object_Detection.py)
 
 ## Prediction Website
 
