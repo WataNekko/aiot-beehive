@@ -34,4 +34,4 @@ The model building and training code for this can be found in the [`BeeAlarmed-c
 
 ## Prediction Website
 
-What ties everything together is our website, which incorporates the afformentioned BeeAlarmed-powered object detection and classification, and are optionally enhanced with the YOLOv7 component for more effective object detection. The system is designed to perform predictions on static images of beehive entrances and present the results in multiple visual graphs. You can access the source code at `./website` or through the following [link](https://github.com/18874studentvgu/M-24_AIBeeSite/).
+What ties everything together is our website, which incorporates the afformentioned BeeAlarmed-powered object detection and classification, and are optionally enhanced with the YOLOv7 component for more effective object detection. The system is designed to perform predictions on static images of beehive entrances and present the results in multiple visual graphs. You can access the source code at [`./website`](website/) or through the following [link](https://github.com/18874studentvgu/M-24_AIBeeSite/).
