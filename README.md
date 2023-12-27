@@ -5,3 +5,9 @@ This repository hosts our AIoT Beehive Monitoring project, aiming to enhance bee
 Here is our project report: [Link](https://drive.google.com/file/d/1mBOaYGjJRPZtV_cR9se_-DsUp4MsGhS4/view?usp=sharing)
 
 All info regarding our project can be found within the report. This README only contains pointers to where our individual codes are.
+
+## Multi-class classification
+
+Our multi-class classification model and training code can be found on the trainining_method_2 branch: [training_method_2:classification.ipynb](https://github.com/WataNekko/aiot-beehive/blob/training_method_2/classification.ipynb)
+
+This model was originally our backup plan and only served for our learning purposes.
